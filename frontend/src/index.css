@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #0F172A;
+  --color-primary-hover: #1E293B;
+  --color-primary-light: #F1F5F9;
+  
+  --color-accent: #FF6A2A;
+  --color-accent-hover: #ff5113;
+  
+  --color-dark-bg: #0F172A;
+  --color-dark-surface: #1E293B;
+  
+  --color-light-bg: #FFFFFF;
+  --color-light-bg-secondary: #F8FAFC;
+  --color-soft-gray: #F1F5F9;
+  
+  --color-text-primary: #0F172A;
+  --color-text-secondary: #475569;
+  --color-text-muted: #94A3B8;
+
+  --shadow-premium: 0 10px 30px -10px rgba(0, 0, 0, 0.04), 0 4px 10px -5px rgba(0, 0, 0, 0.02);
+  --shadow-premium-hover: 0 20px 40px -15px rgba(0, 0, 0, 0.07), 0 10px 15px -10px rgba(0, 0, 0, 0.04);
+}
+
+@layer base {
+  body {
+    @apply bg-white text-text-primary antialiased selection:bg-accent/20 selection:text-accent;
+    font-family: 'Inter', system-ui, sans-serif;
+    letter-spacing: -0.01em;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply max-w-[1200px] mx-auto px-6;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-white px-8 py-3.5 rounded-xl hover:bg-primary-hover transition-all duration-300 font-semibold shadow-sm active:scale-[0.98] flex items-center justify-center gap-2;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-text-primary px-8 py-3.5 rounded-xl border border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition-all duration-300 font-semibold active:scale-[0.98] flex items-center justify-center gap-2;
+  }
+
+  .btn-accent {
+    @apply bg-accent text-white px-8 py-3.5 rounded-xl hover:bg-accent-hover transition-all duration-300 font-semibold shadow-md shadow-accent/20 active:scale-[0.98] flex items-center justify-center gap-2;
+  }
+
+  .clean-card {
+    @apply bg-white border border-slate-100 rounded-2xl shadow-premium transition-all duration-300;
+  }
+
+  .clean-card-hover {
+    @apply hover:shadow-premium-hover hover:-translate-y-0.5;
+  }
+
+  .glass-card {
+    @apply backdrop-blur-md bg-white/70 border border-white/20 rounded-2xl shadow-premium;
+  }
+
+  .hero-gradient {
+    background: radial-gradient(circle at top right, rgba(59, 130, 246, 0.05), transparent),
+                radial-gradient(circle at bottom left, rgba(15, 23, 42, 0.02), transparent);
+  }
+}
+
+/* Custom Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeInUp 0.5s ease-out forwards;
+}
